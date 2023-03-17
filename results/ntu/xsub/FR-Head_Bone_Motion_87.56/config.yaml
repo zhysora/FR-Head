@@ -1,0 +1,128 @@
+# command line: main.py --config config/nturgbd-cross-subject/rand_scale_bone_motion.yaml --work-dir results/ntu/csub/ctrgcn_bone_motion_rand_scale_cl_loss_st_multi_level_0.1_0.2_0.5_1 --cl-mode ST-Multi-Level --w-multi-cl-loss 0.1 0.2 0.5 1 --device 2 --num-epoch 80
+
+alive_age: 1000
+anchor_feeder_args: {}
+api_mode: null
+attn_mode: null
+aug_base_lr: 0.002
+augmenter: feeders.augmenter.PoseGenerator
+augmenter_args: {}
+aux_feeder_args: {}
+balanced_batch: false
+base_lr: 0.1
+batch_n_class: 4
+batch_n_sample: 16
+batch_size: 64
+bone_len_diff_limit: 0.1
+cl_mode: ST-Multi-Level
+class_group: null
+config: config/nturgbd-cross-subject/rand_scale_bone_motion.yaml
+control_std: false
+data_ratio: 1
+device:
+- 2
+eval_feeder_args: {}
+eval_interval: 5
+extend_class: false
+feeder: feeders.feeder_ntu.Feeder
+hard_ratio_ed:
+- 5
+hard_ratio_st:
+- 3
+ignore_weights: []
+log_interval: 100
+loss_type: CE
+lr_decay_rate: 0.1
+memory_size: 10
+metric_func: null
+miner_mode: loss_based
+mix_cl_mode: null
+mixup_mode: value_mix
+model: model.ctrgcn.Model
+model_args:
+  graph: graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: spatial
+  num_class: 120
+  num_person: 2
+  num_point: 25
+model_feat_input: false
+model_saved_name: ''
+mov_diff_limit: 0.05
+multi_stage_fd: false
+nesterov: true
+num_epoch: 80
+num_worker: 32
+optimizer: SGD
+phase: train
+print_log: true
+rank_reverse: false
+rot_diff_limit: 0.15
+save_epoch: 30
+save_interval: 1
+save_score: false
+seed: 1
+show_topk:
+- 1
+- 5
+start_epoch: 0
+start_hard_miner_epoch: -1
+start_mixup_epoch: -1
+step:
+- 35
+- 55
+target_std:
+- 2
+test_batch_size: 64
+test_feeder_args:
+  bone: true
+  data_path: data/ntu/NTU60_CS.npz
+  debug: false
+  p_interval:
+  - 0.95
+  split: test
+  vel: true
+  window_size: 64
+train_feeder_args:
+  bone: true
+  data_path: data/ntu/NTU60_CS.npz
+  debug: false
+  normalization: false
+  p_interval:
+  - 0.5
+  - 1
+  random_choose: false
+  random_move: false
+  random_rot: true
+  random_scale: true
+  random_shift: false
+  split: train
+  vel: true
+  window_size: 64
+use_DND: false
+use_augmenter: false
+use_contrast: false
+use_fn: false
+use_hard_miner: false
+use_mixup: false
+use_pe: false
+use_topology: false
+w_cl_loss: 0.1
+w_fd_loss_mean:
+- 0.1
+w_fd_loss_std:
+- 0.0
+w_hard_miner: 1
+w_mixup: 0.1
+w_multi_cl_loss:
+- 0.1
+- 0.2
+- 0.5
+- 1.0
+w_novel_ce: 0.01
+w_reg_loss: 3
+warm_up_epoch: 5
+weight_decay: 0.0004
+weights: null
+with_aug_epoch: 5
+work_dir: results/ntu/csub/ctrgcn_bone_motion_rand_scale_cl_loss_st_multi_level_0.1_0.2_0.5_1
