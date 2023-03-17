@@ -70,6 +70,9 @@ Put downloaded data into the following directory structure:
  # Transform the skeleton to the center of the first frame
  python seq_transformation.py
 ```
+
+# Training & Testing
+
 ### Pretrained Models & Results
 
 - We provide pretrained models under `./results` folder for producing the final results on all 5 benchmarks.
@@ -83,8 +86,6 @@ Put downloaded data into the following directory structure:
 | ntu120/xsub | 85.51 | 86.81 | 82.01       | 81.87        | 89.52                 |
 | ntu120/xset | 87.32 | 88.14 | 83.91       | 83.98        | 90.94                 |
 | NW-UCLA     | 94.40 | 93.10 | 89.44       | 92.89        | 96.77                 |
-
-# Training & Testing
 
 ### Training
 
